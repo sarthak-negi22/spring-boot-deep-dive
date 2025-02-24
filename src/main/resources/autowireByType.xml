@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+<!--  initializes the bean while calling the setter functions  -->
+    <bean id="specification" class="com.example.autowire.type.Specification">
+        <property name="make" value = "Tesla" />
+        <property name="model" value = "Elon" />
+    </bean>
+
+<!-- whatever dependencies Car class needs, autowire them by type -->
+    <bean id = "myCar" class = "com.example.autowire.type.Car" autowire = "byType" />
+
+<!--  spring looks for the particular dependent attribute type, and finds its bean having the same type (thats called autowiring by type). If the name doesnt match, error exists  -->
+
+
+</beans>
+

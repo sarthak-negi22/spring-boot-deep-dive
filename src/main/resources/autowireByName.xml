@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+<!--  initializes the bean while calling the setter functions  -->
+    <bean id="specification" class="com.example.autowire.name.Specification">
+        <property name="make" value = "Tesla" />
+        <property name="model" value = "Elon" />
+    </bean>
+
+<!-- whatever dependencies Car class needs, autowire them by name -->
+    <bean id = "myCar" class = "com.example.autowire.name.Car" autowire = "byName" />
+
+<!--  spring looks for the particular dependent attribute name, and finds its bean having the same name (thats called autowiring by name). If the name doesnt match, error exists  -->
+
+<!--  two beans with the same id can't exist, if they are called  -->
+
+</beans>
+
