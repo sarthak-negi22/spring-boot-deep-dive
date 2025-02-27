@@ -1,12 +1,16 @@
 package com.sarthak.FirstSpringBoot;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController         //  Specialized version of @Controller annotation, that this is a RESTful service. It means that every method in the class will return data directly as a JSON or XML response instead of rendering a view. It specifies that we will be defining all of the endpoints in this class.
 public class HelloController {
+
+    @GetMapping("/hello/{name}")        // dynamic path variable. We can have path variables in between part of the URI too.
+
+//    @PathVariable is used to extract values from the URI path and pass them as methods parameters in a controller.
+    public HelloResponse helloParams(@PathVariable String name) {       //Parameters name and the path variable name must be same so that the can get mapped to each other
+        return new HelloResponse("Hello "+name);
+    }
 
     @GetMapping("/hello")           // if any request comes under domainName/helo, spring will execute this method
     public HelloResponse hello() {
